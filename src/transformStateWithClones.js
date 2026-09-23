@@ -22,7 +22,7 @@ function transformStateWithClones(state, actions) {
         currentState = clearProperties();
         break;
       default:
-        break;
+         throw new Error("Unknown action type: " + action.type);
     }
     history.push(currentState);
   }
