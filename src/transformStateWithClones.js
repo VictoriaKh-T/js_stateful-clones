@@ -19,7 +19,7 @@ function transformStateWithClones(state, actions) {
         currentState = removeProperties(currentState, action.keysToRemove);
         break;
       case 'clear':
-        currentState = clearProperties(currentState);
+        currentState = clearProperties();
         break;
       default:
         break;
@@ -44,7 +44,7 @@ function removeProperties(currentState, keysToRemove) {
   return newState;
 }
 
-function clearProperties(currentState, actions) {
+function clearProperties() {
   return {};
 }
 
