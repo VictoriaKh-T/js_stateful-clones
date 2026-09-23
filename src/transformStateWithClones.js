@@ -15,13 +15,13 @@ function transformStateWithClones(state, actions) {
       case 'addProperties':
         currentState = addProperties(currentState, action.extraData);
         break;
-
       case 'removeProperties':
         currentState = removeProperties(currentState, action.keysToRemove);
         break;
-
       case 'clear':
         currentState = clearProperties(currentState);
+        break;
+      default:
         break;
     }
     history.push(currentState);
@@ -45,13 +45,7 @@ function removeProperties(currentState, keysToRemove) {
 }
 
 function clearProperties(currentState, actions) {
-  const newState = Object.assign({}, currentState);
-
-  for (const key in newState) {
-    delete newState[key];
-  }
-
-  return newState;
+  return {};
 }
 
 module.exports = transformStateWithClones;
